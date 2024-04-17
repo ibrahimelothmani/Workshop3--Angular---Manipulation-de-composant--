@@ -1,0 +1,21 @@
+<div class="container mt-4">
+    <input type="text" [(ngModel)]="searchCategory" placeholder="Chercher par catégorie">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="bs-component">
+                <ul class="list-group border border-primary border-3">
+                    <li class="list-group-item" *ngFor="let user of filteredUsers()">
+                        <img src="{{user.picture}}" class="img-circle">
+                        <span class="name">{{user.firstName}} {{user.lastName}}</span>
+                        <span class="pull-right">
+                            <button class="btn btn-danger" (click)="deleteUser(user)" [disabled]="user.accountCategory === 'Admin'">
+                                Delete
+                            </button>
+                        </span>
+                        <span class="clearfix"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
